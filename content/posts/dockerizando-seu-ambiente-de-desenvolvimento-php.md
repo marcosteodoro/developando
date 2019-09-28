@@ -10,19 +10,19 @@ categories = ['devops', 'docker', 'php']
 
 ## Dockerizando seu ambiente de desenvolvimento PHP (Debian e derivados)
 
-Seguiremos agora com um passo a passo para montar seu ambiente de desenvolvimento PHP utilizando Docker e Docker Compose.
+Seguiremos agora com um passo a passo para montar seu ambiente de desenvolvimento PHP utilizando **Docker** e **Docker Compose**.
 
-Primeiramente, vamos realizar a instalação do Docker.
+Primeiramente, vamos realizar a instalação do **Docker**.
 
-### Instalando o Docker
+### Instalando o **Docker**
 
-O primeiro passo é realizar a remoção de instalações anteriores de Docker, e para isso digite o seguinte comando em seu terminal: 
+O primeiro passo é realizar a remoção de instalações anteriores. Para isso digite o seguinte comando em seu terminal: 
 
 ``
 sudo apt-get remove docker docker-engine docker.io containerd runc
 ``
 
-Agora iremos atualizar os dados de seu repositório apt com o seguinte comando: 
+Agora iremos atualizar os dados de seu repositório *apt* com o seguinte comando: 
 
 ``
 sudo apt-get update
@@ -31,61 +31,61 @@ sudo apt-get update
 Instale os pacotes necessários para o processo: 
 
 `` 
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg2 \
-    software-properties-common
+sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 ``
 
 
-Adicione a chave GPG oficial do repositório do Docker:
+Adicione a chave GPG oficial do repositório do **Docker**:
 
 ``
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 ``
 
-Inclua o repositório do Docker em sua source list: 
+Inclua o repositório do **Docker** em sua *source list* com o comando a seguir: 
 
 ``
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 ``
 
-Com o procedimento anterior realizado já podemos partir efetivamente para a instalação do Docker.
+Com o procedimento anterior realizado já podemos partir efetivamente para a instalação do **Docker**.
 
-Vamos primeiro atualizar o repositório para sincronizar o novo repositório adicionado: 
+Vamos primeiro rodar uma atualização para sincronizar o novo repositório adicionado: 
 
 ``
 sudo apt-get update
 ``
 
-E agora sim instalaremos os pacotes para realizar a instalação da ferramenta: 
+E agora sim instalaremos os pacotes para rodar a ferramenta: 
 
 ``
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 ``
 
-Com tudo isso realizado  temos uma instalação de Docker realizada. Para validar se tudo está funcionando de acordo, podemos rodar o seguinte comando: 
+Com tudo isso realizado  temos uma instalação de **Docker** realizada. 
+
+Para validar se tudo está funcionando de acordo, podemos rodar o seguinte comando: 
 
 ``
 sudo docker run hello-world
 ``
 
-Caso tudo tenha sido instalado com sucesso, o comando a seguir deve realizar o download de uma imagem Docker e deve colocar a mesma para rodar. Caso ocorra algum erro reinicie os passos.
+Caso tudo tenha sido instalado com sucesso, o comando a seguir deve realizar o download de uma imagem **Docker** e deve colocar a mesma para rodar. Caso ocorra algum erro reinicie os passos.
 
-Com tudo isso instalado e funcionando de acordo é interessante facilitarmos um pouco as coisas, e rodar os comandos do Docker sem a necessidade de rodar o comando *sudo* nos ajuda muito nessa parte. Para isso é necessário rodar o comando a seguir para adicionar seu usuário atual ao grupo do Docker da máquina: 
+Com a instalação realizada, podemos adicionar nosso usuário ao grupo do **docker** da máquina, possibilitando assim que rodemos os comandos sem a necessidade de utilizar o *sudo*. Para isso rode o seguinte comando em seu terminal:
 
 ``
 sudo usermod -aG docker $USER
 ``
 
-### Instalando o *docker-compose*
+Ao reiniciar sua máquina será possível rodar os comandos do **Docker** sem utilizar o *sudo*:
 
-À partir deste ponto já temos o Docker instalado. Agora podemos seguir adicionando o *docker-compose* à nossa máquina pois o mesmo irá facilitar nossa vida com ambientes que devemos subir para iniciar a programação.
+``
+docker run hello-world
+``
+
+### Instalando o **Docker Compose**
+
+À partir deste ponto já temos o **Docker** instalado e já validamos que o mesmo está funcionando corretamente. Agora podemos seguir adicionando o **docker-compose** à nossa máquina, pois o mesmo irá facilitar nossa vida com os ambientes que devemos subir para iniciar a programação.
 
 Inicialmente iremos realizar o download do script para rodar a ferramenta: 
 
@@ -93,21 +93,21 @@ Inicialmente iremos realizar o download do script para rodar a ferramenta:
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ``
 
-Após baixado o script, necessitamos das permissões necessárias para execução, e as mesmas são concedidas com o comando: 
+Após baixado o script, necessitamos dar as permissões necessárias para execução, e o comando a seguir as concede (caso altere o caminho de instalação do passo acima, o mesmo deve seguir o mesmo caminho no comando a seguir): 
 
 ``
 sudo chmod +x /usr/local/bin/docker-compose
 ``
 
-Para comodidade, podemos adicionar o link a seguir: 
+Para que consigamos acessar os comandos do **docker-compose** globalmente, podemos adicionar o link a seguir: 
 
 ``
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ``
 
-O mesmo nos possibilita executar o comando *docker-compose* de qualquer lugar de nossa máquina.
+O mesmo nos possibilita executar os comandos do **docker-compose** de qualquer lugar de nossa máquina.
 
-Apoś isso, podemos rodar o comando a seguir e ver se o retorno condiz com a versão atual do *docker-compose*: 
+Apoś isso, podemos rodar o comando a seguir e ver se o retorno condiz com a versão atual do **docker-compose**: 
 
 ``
 docker-compose --version
@@ -115,9 +115,9 @@ docker-compose --version
 
 ### E agora, finalmente  partiremos para nosso ambiente de programação PHP
 
-Iremos utilizar um ambiente que criei. 
+Iremos utilizar um ambiente pré-figurado que pode ser encontrado neste [repositório](https://github.com/marcosteodoro/docker-apache-php72-mariadb103).
 
-O mesmo conta com o PHP versão 7.2, rodando sob o Apache 2 e se conectando com um link com o banco de dados MariaDB em sua versão 10.3.
+O mesmo conta com o PHP versão 7.2, Apache 2 e o banco de dados MariaDB 10.3.
 
 Realize o clone do repositório em sua máquina com o seguinte comando: 
 
