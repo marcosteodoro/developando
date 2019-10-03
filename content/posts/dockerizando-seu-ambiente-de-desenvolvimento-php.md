@@ -139,7 +139,7 @@ docker-compose up
 
 O comando irá realizar o download das imagens necessárias para o funcionamento do ambiente e já irá subir o mesmo. Com tudo rodando de acordo teremos um retorno de *phpinfo()* em nosso localhost.
 
-Espero ter ajudado em algo, e qualquer problemma é só entrar em contato.
+Espero ter ajudado em algo, e qualquer problema é só entrar em contato.
 
 #### Menções honrosas
 
