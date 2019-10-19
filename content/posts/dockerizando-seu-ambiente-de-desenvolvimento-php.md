@@ -141,10 +141,6 @@ O comando irá realizar o download das imagens necessárias para o funcionamento
 
 Espero ter ajudado em algo, e qualquer problema é só entrar em contato.
 
-#### Menções honrosas
-
-O post anterior foi escrito ouvindo [Cássia Eller](https://open.spotify.com/artist/10naVTwNjE50daQVrN0bXh?si=r1CTAJGMQDivpA9CNEBr5A), então qualquer problema pode ir reclamar diretamente com ela.
-
 -\-
 
 Marcos Teodoro
