@@ -9,3 +9,7 @@ footer p {
 .list ul li {
     font-size: 1.4rem;
 }
+
+.gist table td, table th {
+    border: none;
+}
