@@ -30,3 +30,8 @@ Em uma pasta de sua preferência (onde os arquivos do seu projeto irão ficar po
 
 <script src="https://gist.github.com/marcosteodoro/06396ae7a243064903702cc547512ed8.js"></script>
 
+Dentro da pasta onde foi criado o arquivo *docker-compose.yaml* crie um novo diretório e dê o nome de htdocs a ele.
+
+``
+mkdir htdocs 
+``
