@@ -30,8 +30,18 @@ Em uma pasta de sua preferência (onde os arquivos do seu projeto irão ficar po
 
 <script src="https://gist.github.com/marcosteodoro/06396ae7a243064903702cc547512ed8.js"></script>
 
-Dentro da pasta onde foi criado o arquivo *docker-compose.yaml* crie um novo diretório e dê o nome de htdocs a ele.
+O arquivo acima irá indicar todos os containeres que devem ser utilizados para a criação do ambiente que necessitamos para começar a desenvolver com o Laravel.
+
+Esse ambiente conta com PHP 7.3, bando de dados Postgres SQL e Redis. Os containers de PHP são do projeto Ambientum, e facilitam bastante nossa vida na criação dessa estrutura. Para saber mais em relação ao Ambientum e o que mais é possível fazer com ele dê uma conferida no docker hub neste [link](https://hub.docker.com/r/ambientum/php).
+
+Ainda no mesmo diretório, rode o seguinte comando para fazer o download das imagens e colocar todo o ambiente para rodar:
 
 ``
-mkdir htdocs 
+docker-compose up -d
 ``
+
+A primeira vez que rodar esse comando, é normal que demore um pouco pois o comando realiza o download de todas as imagens necessárias para subir os containeres que o ambiente necessita.
+
+Após tudo executado, você terá o ambiente pronto para iniciar o trabalho com Laravel. Acessando o [localhost](http://localhost:8080) de sua máquina na porta 8080, terá o retorno de 404 not found, e é sinal que seu ambiente foi configurado e está funcionando de acordo, porém ainda não colocamos nenhum arquivo no directory root da aplicação para ser exibido. (Caso ocorra algum erro por conta de portar já utilizadas em sua máquina, basta mudar o bind de portar no arquivo *docker-compose.yaml*).
+
+
