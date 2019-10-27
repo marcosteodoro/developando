@@ -13,3 +13,7 @@ footer p {
 .gist table td, table th {
     border: none;
 }
+
+.align-center {
+    text-align: center;
+}
