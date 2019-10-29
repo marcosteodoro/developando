@@ -60,7 +60,7 @@ Como resultado teremos o seguinte esquema de arquivos/diretórios em nossa aplic
     <img src="/images/project-structure-after-composer-create-project.png" alt="Estrutura diretórios">
 </div>
 
-Aparentemente tudo functionando de acordo, porém, acessando o [localhost](http://localhost:8080) da aplicação, ainda temos aquele retorno de *404*...
+Aparentemente tudo funcionando de acordo, porém, acessando o [localhost](http://localhost:8080) da aplicação, ainda temos aquele retorno de *404*...
 
 Isso ocorre, por conta do *directory root* da aplicação estar esperando uma pasta public, na raiz do projeto. Portanto devemos mover nosso projeto para a raiz, e é possível fazer isso com o seguinte comando: 
 
@@ -76,7 +76,7 @@ E a pasta my-awesome-project da aplicação não tem mais motivo para existir, p
 rm -rf my-awesome-project 
 ``
 
-Com este mesmo arquivo *docker-compose.yaml* é possível rodarmos projetos já existentes também, e o proceso fica bem facilitado nesse caso. Basta adicionar o mesmo na raiz do projeto e rodar o comando:
+Com este mesmo arquivo *docker-compose.yaml* é possível rodarmos projetos já existentes também, e o processo fica bem facilitado nesse caso. Basta adicionar o mesmo na raiz do projeto e rodar o comando:
 
 ``
 docker-compose up -d
